@@ -136,5 +136,10 @@
       }
     }
   },
-  "defaultProject": "ntdash"
+  "defaultProject": "ntdash",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
