@@ -3,4 +3,6 @@
   background-color: #2d2d2d;
   height: 100vh;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 700px auto;
 }
