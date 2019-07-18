@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
+import {Observable, interval} from 'rxjs';
+import { map ,share } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +9,10 @@ import {Observable} from 'rxjs';
 
 export class ClockService {
 
-     private clock: Observable<Date>;
+     private clock: any;
 
      constructor() {
-       this.clock = Observable.interval(1000).map(tick => new Date()).share();
+       this.clock = interval(1000).pipe(map(tick => new Date()), share());
      }
 
      getClock(): Observable<Date> {
