@@ -8,6 +8,8 @@ import { RoomTempComponent } from './components/room-temp/room-temp.component';
 import { CityTempComponent } from './components/city-temp/city-temp.component';
 import { LeftMainDashComponent } from './left-main-dash/left-main-dash.component';
 import { IndexDashboardComponent } from './index-dashboard/index-dashboard.component';
+import { CityForecastComponent } from './components/city-forecast/city-forecast.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,16 @@ import { IndexDashboardComponent } from './index-dashboard/index-dashboard.compo
     RoomTempComponent,
     CityTempComponent,
     LeftMainDashComponent,
-    IndexDashboardComponent
+    IndexDashboardComponent,
+    CityForecastComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
