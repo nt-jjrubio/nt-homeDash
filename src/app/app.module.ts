@@ -10,6 +10,7 @@ import { LeftMainDashComponent } from './left-main-dash/left-main-dash.component
 import { IndexDashboardComponent } from './index-dashboard/index-dashboard.component';
 import { CityForecastComponent } from './components/city-forecast/city-forecast.component';
 import { HttpClientModule} from '@angular/common/http';
+import { DockComponent } from './components/dock/dock.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule} from '@angular/common/http';
     CityTempComponent,
     LeftMainDashComponent,
     IndexDashboardComponent,
-    CityForecastComponent
+    CityForecastComponent,
+    DockComponent
   ],
   imports: [
     BrowserModule,
