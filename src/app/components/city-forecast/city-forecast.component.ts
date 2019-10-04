@@ -23,7 +23,7 @@ export class CityForecastComponent implements OnInit {
   ngOnInit() {
     /** get Forecast id municipio */
     //24010 (La Bañeza)
-    this.getForecastSub = this.weatherService.getForecast('24010')
+    this.getForecastSub = this.weatherService.getDailyForecast('24010')
           .subscribe(res => {
               console.log(res);
 

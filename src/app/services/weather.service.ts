@@ -11,9 +11,9 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  public getForecast(municipio: string): Observable<Object> {
+  public getDailyForecast(municipio: string): Observable<Object> {
 
-    return this.http.get(environment.weather.dialyForecast + municipio, {
+    return this.http.get(environment.weather.dailyForecast + municipio, {
       headers: {
         Accept: 'application/json',
         api_key: apikeys.aemetAPIKey,
