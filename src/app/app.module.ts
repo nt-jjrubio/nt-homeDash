@@ -10,11 +10,9 @@ import { HttpClientModule} from '@angular/common/http';
 /**
  * Packages
  */
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'; // https://github.com/FortAwesome/angular-fontawesome
-import {library} from '@fortawesome/fontawesome-svg-core'; // Icon pack for font-awesome
 import {fas} from '@fortawesome/free-solid-svg-icons'; // Icon pack for font-awesome
 import {far} from '@fortawesome/free-regular-svg-icons'; // Icon pack for font-awesome
-
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 /**
  * Components
  */
@@ -27,9 +25,6 @@ import { CityForecastComponent } from './components/city-forecast/city-forecast.
 import { DockComponent } from './components/dock/dock.component';
 
 
-// Font Awesome Load
-library.add(fas);
-library.add(far);
 
 @NgModule({
   declarations: [
@@ -52,4 +47,10 @@ library.add(far);
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    // Font Awesome Load
+    library.addIconPacks(fas);
+    library.addIconPacks(far);
+  }
+}
