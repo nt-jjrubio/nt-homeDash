@@ -27,10 +27,10 @@ export class CityForecastComponent implements OnInit {
           .subscribe(res => {
               console.log(res);
 
-              this.getOpenDataSub = this.weatherService.getOpendata(res['data'])
-              .subscribe(res => {
+              this.getOpenDataSub = this.weatherService.getOpendata(res['datos'])
+              .subscribe(resWeather => {
                 console.log('Resultados del tiempo');
-                console.log(res);
+                console.log(resWeather);
               });
 
               // Response Example

@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  corsAPIURL: 'https://cors-anywhere.herokuapp.com/',
   weather: {
     dailyForecast: 'https://opendata.aemet.es/opendata/api/prediccion/especifica/municipio/diaria/'
   }
