@@ -1,3 +1,13 @@
-<p>
-  city-forecast works!
-</p>
+<div class="city-forecast-component" *ngIf="weatherData.length > 0">
+  <!-- TODO: ngFor all locations -->
+  <div class="weather-blk" *ngFor="let weather of weatherData">
+
+    <div class="city-name">
+      {{weather.nombre}}
+    </div>
+    <div class="city-week" *ngFor="let day of weather['prediccion']['dia']">
+      {{day.fecha}} {{day.temperatura.minima}}ºC /{{day.temperatura.maxima}}ºC
+    </div>
+
+  </div>
+</div>

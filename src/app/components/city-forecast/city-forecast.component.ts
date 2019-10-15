@@ -9,14 +9,13 @@ import { Subscription } from 'rxjs';
 })
 export class CityForecastComponent implements OnInit {
 
-
-
   /**
   * XHR Subscription
   */
   private getForecastSub: Subscription;
   private getOpenDataSub: Subscription;
 
+  public weatherData = [];
 
   constructor(private weatherService: WeatherService) { }
 
@@ -26,13 +25,6 @@ export class CityForecastComponent implements OnInit {
     this.getForecastSub = this.weatherService.getDailyForecast('24010')
           .subscribe(res => {
               console.log(res);
-
-              this.getOpenDataSub = this.weatherService.getOpendata(res['datos'])
-              .subscribe(resWeather => {
-                console.log('Resultados del tiempo');
-                console.log(resWeather);
-              });
-
               // Response Example
               // {
               //   "descripcion": "exito",
@@ -42,8 +34,36 @@ export class CityForecastComponent implements OnInit {
               // }
 
 
-            },  err => {
+              this.getOpenDataSub = this.weatherService.getOpendata(res['datos'])
+              .subscribe(resWeather => {
+                console.log('Resultados del tiempo:');
+                console.log(resWeather);
+                this.weatherData.push(resWeather[0]);
 
+                // Response example
+                // elaborado: "2019-10-15"
+                // id: 24010
+                // nombre: "Bañeza, La"
+                // origen:
+                //   copyright: "© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma."
+                //   enlace: "http://www.aemet.es/es/eltiempo/prediccion/municipios/baneza-la-id24010"
+                //   language: "es"
+                //   notaLegal: "http://www.aemet.es/es/nota_legal"
+                //   productor: "Agencia Estatal de Meteorología - AEMET. Gobierno de España"
+                //   web: "http://www.aemet.es"
+
+                // prediccion:
+                //   dia: (7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}]
+
+                // provincia: "León"
+                // version: 1
+              });
+
+
+
+
+            },  err => {
+                // TODO: Error
             }
           );
 
