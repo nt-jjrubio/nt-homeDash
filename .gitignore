@@ -48,3 +48,5 @@ Thumbs.db
 
 src/app/apikeys/*
 !src/app/apikeys/apikeys.example.ts
+
+.angulardoc.json
