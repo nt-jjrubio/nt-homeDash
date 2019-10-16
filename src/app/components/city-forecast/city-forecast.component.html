@@ -6,8 +6,22 @@
       {{weather.nombre}}
     </div>
     <div class="city-week" *ngFor="let day of weather['prediccion']['dia']">
+
+      <div class="weather-day">
+
+      </div>
+      <div class="weather-icon">
+
+      </div>
+      <div class="weather-temperature">
+        <div class="weather-temp-max"></div>
+        <div class="weather-temp-min"></div>
+      </div>
       {{day.fecha}} {{day.temperatura.minima}}ºC /{{day.temperatura.maxima}}ºC
     </div>
 
   </div>
+</div>
+<div class="weather-loading" *ngIf="loading && weatherData.length < 1">
+  <fa-icon [icon]="['fas', 'sync-alt']" [spin]="true"></fa-icon>
 </div>

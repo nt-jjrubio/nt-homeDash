@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /**
  * Packages
@@ -13,6 +14,8 @@ import { HttpClientModule} from '@angular/common/http';
 import {fas} from '@fortawesome/free-solid-svg-icons'; // Icon pack for font-awesome
 import {far} from '@fortawesome/free-regular-svg-icons'; // Icon pack for font-awesome
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { ToastrModule } from 'ngx-toastr';
+
 /**
  * Components
  */
@@ -41,7 +44,9 @@ import { DockComponent } from './components/dock/dock.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

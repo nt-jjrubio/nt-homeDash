@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from 'src/app/services/weather.service';
 import { Subscription } from 'rxjs';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-city-forecast',
@@ -17,11 +19,15 @@ export class CityForecastComponent implements OnInit {
 
   public weatherData = [];
 
-  constructor(private weatherService: WeatherService) { }
+  public loading = true;
+
+  constructor(private weatherService: WeatherService, private toastr: ToastrService) { }
+
 
   ngOnInit() {
     /** get Forecast id municipio */
     //24010 (La Bañeza)
+
     this.getForecastSub = this.weatherService.getDailyForecast('24010')
           .subscribe(res => {
               console.log(res);
@@ -39,6 +45,7 @@ export class CityForecastComponent implements OnInit {
                 console.log('Resultados del tiempo:');
                 console.log(resWeather);
                 this.weatherData.push(resWeather[0]);
+                this.loading = false;
 
                 // Response example
                 // elaborado: "2019-10-15"
@@ -57,13 +64,11 @@ export class CityForecastComponent implements OnInit {
 
                 // provincia: "León"
                 // version: 1
+              }, errWeather => {
+                this.toastr.error('Error getting weather: ', errWeather);
               });
-
-
-
-
             },  err => {
-                // TODO: Error
+                this.toastr.error('Error getting weather: ', err);
             }
           );
 
